@@ -16,7 +16,7 @@ The project is intentionally simple to showcase foundational Kafka concepts—pr
 
 ## Prerequisites
 
-- **Java 17** or later
+- **Java 21** or later
 - **Maven**
 - **Apache Kafka** (via Docker)
 - **Docker**
