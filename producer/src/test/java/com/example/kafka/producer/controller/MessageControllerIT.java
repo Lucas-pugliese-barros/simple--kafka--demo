@@ -19,18 +19,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @EmbeddedKafka(partitions = 1, topics = {"topic-messages"})
 @TestPropertySource(properties = {
-        "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}"
+        "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}",
+        "spring.kafka.consumer.group-id=test-group",
+        "spring.kafka.consumer.auto-offset-reset=earliest",
+        "spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer",
+        "spring.kafka.consumer.value-deserializer=org.springframework.kafka.support.serializer.JsonDeserializer",
+        "spring.kafka.consumer.properties.spring.json.trusted.packages=com.example.kafka.producer.dto"
 })
 class MessageControllerIT {
 
     @Autowired
     private TestRestTemplate restTemplate;
 
-    @Autowired
-    private KafkaTemplate<String, MessageDTO> kafkaTemplate;
-
-    private CountDownLatch latch = new CountDownLatch(1);
     private MessageDTO receivedMessage;
+    private final CountDownLatch latch = new CountDownLatch(1);
 
     @Test
     void testSendMessage_PublishesToKafka() throws InterruptedException {
