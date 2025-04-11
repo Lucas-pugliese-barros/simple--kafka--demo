@@ -4,13 +4,13 @@
 
 This project demonstrates a basic implementation of **Apache Kafka** using **Java** and **Spring Boot**. It consists of two separate applications:
 
-1. **Kafka Producer**: A RESTful application that accepts JSON messages via an API endpoint and publishes them to a Kafka topic called `simple-messages`.
-2. **Kafka Consumer**: An application that listens to the `simple-messages` topic and logs the received messages to the console.
+1. **Kafka Producer**: A RESTful application that accepts JSON messages via an API endpoint and publishes them to a Kafka topic called `topic-messages`.
+2. **Kafka Consumer**: An application that listens to the `topic-messages` topic and logs the received messages to the console.
 
 The project is intentionally simple to showcase foundational Kafka concepts—producing and consuming messages—while leveraging Spring Boot for ease of development.
 
-- **kafka-producer**: Sends messages to the `simple-messages` Kafka topic.
-- **kafka-consumer**: Reads and logs messages from the `simple-messages` topic.
+- **kafka-producer**: Sends messages to the `topic-messages` Kafka topic.
+- **kafka-consumer**: Reads and logs messages from the `topic-messages` topic.
 
 ---
 
