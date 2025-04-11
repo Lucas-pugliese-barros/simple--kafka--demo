@@ -12,3 +12,7 @@ server:
 logging:
   level:
     org.springframework.kafka: DEBUG
+
+config:
+  mock:
+   stress-test: ${STRESS_TEST_ENABLED:false}
