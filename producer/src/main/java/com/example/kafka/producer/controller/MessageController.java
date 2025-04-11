@@ -26,6 +26,4 @@ public class MessageController implements MessageAPI {
         messageService.sendMessage(message);
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
-
-
 }
