@@ -55,6 +55,11 @@ curl -X POST http://localhost:8081/api/messages \
 
 --- 
 
+### 5. Check topic
+```bash
+kafka-consumer-groups --bootstrap-server localhost:9092 --group temp-offset-check --topic topic-messages --reset-offsets --to-latest --dry-run
+```
+
 ## Benefits of Using Kafka
 Apache Kafka is a distributed streaming platform with several key advantages, making it ideal for this type of project:
 
